@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gelişmiş Hesap Makinesi</title>
+    <meta name="description" content="Hesap makinesi, para birimi, uzunluk ve sıcaklık dönüştürücü özellikleriyle gelişmiş bir araç.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <div class="app-container">
+        <!-- Sidebar for History -->
+        <div class="history-sidebar">
+            <div class="history-header">
+                <h2><i class="fas fa-history"></i> Geçmiş</h2>
+                <button id="clear-history-btn" title="Geçmişi Temizle"><i class="fas fa-trash"></i></button>
+            </div>
+            <div class="history-list" id="history-list">
+                <!-- Geçmiş buraya eklenecek -->
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="calculator" title="Hesap Makinesi"><i class="fas fa-calculator"></i></button>
+                <button class="tab-btn" data-tab="currency" title="Para Birimi"><i class="fas fa-coins"></i></button>
+                <button class="tab-btn" data-tab="length" title="Uzunluk"><i class="fas fa-ruler"></i></button>
+                <button class="tab-btn" data-tab="temperature" title="Sıcaklık"><i class="fas fa-temperature-half"></i></button>
+            </div>
+
+            <div class="tab-content-container">
+                <!-- Hesap Makinesi Paneli -->
+                <div class="tab-pane active" id="calculator-pane">
+                    <div class="display">
+                        <div class="previous-operand" id="previous-operand"></div>
+                        <div class="current-operand" id="current-operand">0</div>
+                    </div>
+                    <div class="keypad">
+                        <button class="btn btn-operator scientific" data-action="sin" title="Sinüs (Derece)">sin</button>
+                        <button class="btn btn-operator scientific" data-action="cos" title="Kosinüs (Derece)">cos</button>
+                        <button class="btn btn-operator scientific" data-action="tan" title="Tanjant (Derece)">tan</button>
+                        <button class="btn btn-operator scientific" data-action="cot" title="Kotanjant (Derece)">cot</button>
+                        
+                        <button class="btn btn-operator scientific" data-action="log" title="Logaritma 10">log</button>
+                        <button class="btn btn-operator scientific" data-action="ln" title="Doğal Logaritma">ln</button>
+                        <button class="btn btn-operator scientific" data-action="sqrt" title="Karekök">√</button>
+                        <button class="btn btn-operator scientific" data-action="pi" title="Pi Sayısı">π</button>
+
+                        <button class="btn btn-action" data-action="clear">AC</button>
+                        <button class="btn btn-action" data-action="delete">DEL</button>
+                        <button class="btn btn-operator" data-operator="%">%</button>
+                        <button class="btn btn-operator" data-operator="/">÷</button>
+                        
+                        <button class="btn btn-number" data-number="7">7</button>
+                        <button class="btn btn-number" data-number="8">8</button>
+                        <button class="btn btn-number" data-number="9">9</button>
+                        <button class="btn btn-operator" data-operator="*">×</button>
+                        
+                        <button class="btn btn-number" data-number="4">4</button>
+                        <button class="btn btn-number" data-number="5">5</button>
+                        <button class="btn btn-number" data-number="6">6</button>
+                        <button class="btn btn-operator" data-operator="-">−</button>
+                        
+                        <button class="btn btn-number" data-number="1">1</button>
+                        <button class="btn btn-number" data-number="2">2</button>
+                        <button class="btn btn-number" data-number="3">3</button>
+                        <button class="btn btn-operator" data-operator="+">+</button>
+                        
+                        <button class="btn btn-number zero" data-number="0">0</button>
+                        <button class="btn btn-number" data-number=".">.</button>
+                        <button class="btn btn-equals" data-action="equals">=</button>
+                    </div>
+                </div>
+
+                <!-- Kur Çevirici Paneli -->
+                <div class="tab-pane" id="currency-pane">
+                    <h3>Para Birimi Çevirici</h3>
+                    <div class="converter-box">
+                        <div class="input-group">
+                            <input type="number" id="currency-amount" value="1" min="0">
+                            <select id="currency-from"></select>
+                        </div>
+                        <button class="swap-btn" id="currency-swap"><i class="fas fa-exchange-alt"></i></button>
+                        <div class="input-group">
+                            <input type="number" id="currency-result" readonly>
+                            <select id="currency-to"></select>
+                        </div>
+                        <p class="rate-info" id="currency-rate-info">Canlı kur alınıyor...</p>
+                    </div>
+                </div>
+
+                <!-- Uzunluk Çevirici Paneli -->
+                <div class="tab-pane" id="length-pane">
+                    <h3>Uzunluk Çevirici</h3>
+                    <div class="converter-box">
+                        <div class="input-group">
+                            <input type="number" id="length-amount" value="1">
+                            <select id="length-from">
+                                <option value="mm">Milimetre (mm)</option>
+                                <option value="cm">Santimetre (cm)</option>
+                                <option value="m" selected>Metre (m)</option>
+                                <option value="km">Kilometre (km)</option>
+                                <option value="in">İnç (in)</option>
+                                <option value="ft">Fit (ft)</option>
+                                <option value="yd">Yarda (yd)</option>
+                                <option value="mi">Mil (mi)</option>
+                            </select>
+                        </div>
+                        <button class="swap-btn" id="length-swap"><i class="fas fa-exchange-alt"></i></button>
+                        <div class="input-group">
+                            <input type="number" id="length-result" readonly>
+                            <select id="length-to">
+                                <option value="mm">Milimetre (mm)</option>
+                                <option value="cm" selected>Santimetre (cm)</option>
+                                <option value="m">Metre (m)</option>
+                                <option value="km">Kilometre (km)</option>
+                                <option value="in">İnç (in)</option>
+                                <option value="ft">Fit (ft)</option>
+                                <option value="yd">Yarda (yd)</option>
+                                <option value="mi">Mil (mi)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sıcaklık Çevirici Paneli -->
+                <div class="tab-pane" id="temperature-pane">
+                    <h3>Sıcaklık Çevirici</h3>
+                    <div class="converter-box">
+                        <div class="input-group">
+                            <input type="number" id="temp-amount" value="0">
+                            <select id="temp-from">
+                                <option value="C" selected>Santigrat (°C)</option>
+                                <option value="F">Fahrenheit (°F)</option>
+                                <option value="K">Kelvin (K)</option>
+                            </select>
+                        </div>
+                        <button class="swap-btn" id="temp-swap"><i class="fas fa-exchange-alt"></i></button>
+                        <div class="input-group">
+                            <input type="number" id="temp-result" readonly>
+                            <select id="temp-to">
+                                <option value="C">Santigrat (°C)</option>
+                                <option value="F" selected>Fahrenheit (°F)</option>
+                                <option value="K">Kelvin (K)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
