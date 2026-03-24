@@ -1,12 +1,12 @@
-# 🧮 Gelişmiş Hesap Makinesi
+#  Gelişmiş Hesap Makinesi
 
 Modern, cam-morfizm tasarımlı; hesap makinesi, para birimi, uzunluk ve sıcaklık dönüştürücüyü tek çatı altında toplayan masaüstü uygulaması.
 
 ---
 
-## ✨ Özellikler
+##  Özellikler
 
-### 🔢 Bilimsel Hesap Makinesi
+###  Bilimsel Hesap Makinesi
 - Temel aritmetik işlemler (`+`, `−`, `×`, `÷`, `%`)
 - Trigonometrik fonksiyonlar — **sin**, **cos**, **tan**, **cot** (derece cinsinden)
 - Logaritmik fonksiyonlar — **log** (taban 10) ve **ln** (doğal logaritma)
@@ -14,34 +14,34 @@ Modern, cam-morfizm tasarımlı; hesap makinesi, para birimi, uzunluk ve sıcakl
 - Tam klavye desteği (`Enter`, `Backspace`, `Escape`, operatör tuşları)
 - Türk yerel sayı biçimlendirmesi (virgüllü ondalık gösterim)
 
-### 💱 Canlı Para Birimi Çevirici
+###  Canlı Para Birimi Çevirici
 - [open.er-api.com](https://open.er-api.com) üzerinden gerçek zamanlı döviz kurları
 - 150+ para birimi desteği
 - Anlık kur bilgisi gösterimi
 - Tek tıkla para birimlerini ters çevirme (swap)
 
-### 📏 Uzunluk Çevirici
+###  Uzunluk Çevirici
 - 8 farklı birim: `mm`, `cm`, `m`, `km`, `in`, `ft`, `yd`, `mi`
 - Anında dönüşüm, 6 ondalık basamak hassasiyeti
 
-### 🌡️ Sıcaklık Çevirici
+###  Sıcaklık Çevirici
 - Santigrat (°C), Fahrenheit (°F) ve Kelvin (K) arası dönüşüm
 - 4 ondalık basamak hassasiyeti
 
-### 📋 İşlem Geçmişi
+###  İşlem Geçmişi
 - Son 50 işlem `localStorage` ile tarayıcıda saklanır
 - Geçmişteki hesap sonuçlarına tıklayarak hesap makinesine aktarma
 - Tek tıkla geçmişi temizleme
 
 ---
 
-## 🖥️ Ekran Görüntüsü
+##  Ekran Görüntüsü
 
 > Uygulama karanlık tema, animasyonlu arka plan ve cam efektli arayüzüyle modern bir görünüm sunar.
 
 ---
 
-## 🚀 Kurulum ve Çalıştırma
+##  Kurulum ve Çalıştırma
 
 ### Gereksinimler
 
@@ -78,7 +78,7 @@ Derlenen `.exe` dosyası `dist/` klasöründe oluşur.
 
 ---
 
-## 📁 Dosya Yapısı
+##  Dosya Yapısı
 
 ```
 gelismis-hesap-makinesi/
@@ -90,7 +90,7 @@ gelismis-hesap-makinesi/
 
 ---
 
-## 🛠️ Kullanılan Teknolojiler
+##  Kullanılan Teknolojiler
 
 | Katman | Teknoloji |
 |--------|-----------|
@@ -102,7 +102,7 @@ gelismis-hesap-makinesi/
 
 ---
 
-## ⌨️ Klavye Kısayolları
+##  Klavye Kısayolları
 
 | Tuş | İşlev |
 |-----|-------|
@@ -115,6 +115,6 @@ gelismis-hesap-makinesi/
 
 ---
 
-## 📝 Lisans
+##  Lisans
 
 Bu proje [MIT Lisansı](LICENSE) ile lisanslanmıştır.
